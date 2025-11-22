@@ -1,11 +1,12 @@
-using System;
 using System.Collections.Generic;
 
 public class Video
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int LengthSeconds { get; set; }
+    public string Title { get; }
+
+    public string Author { get; }
+    
+    public int LengthSeconds { get; }
 
     private List<Comment> _comments = new List<Comment>();
 
@@ -21,7 +22,7 @@ public class Video
         _comments.Add(comment);
     }
 
-    public int GetNumberOfComments()
+    public int GetCommentCount()
     {
         return _comments.Count;
     }
