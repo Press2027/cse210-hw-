@@ -17,25 +17,25 @@ public class Order
 
     public double GetTotalCost()
     {
-        double productTotal = 0;
+        double total = 0;
 
         foreach (Product p in _products)
         {
-            productTotal += p.GetTotalCost();
+            total += p.GetTotalPrice();
         }
 
-        double shippingCost = _customer.LivesInUSA() ? 5 : 35;
+        double shipping = _customer.LivesInUSA() ? 5 : 35;
 
-        return productTotal + shippingCost;
+        return total + shipping;
     }
 
     public string GetPackingLabel()
     {
-        string result = "====== Packing Label ======\n";
+        string result = "----- PACKING LABEL -----\n";
 
         foreach (Product p in _products)
         {
-            result += $"{p.GetName()} (ID: {p.GetProductId()})\n";
+            result += $"{p.GetName()} (ID: {p.GetId()})\n";
         }
 
         return result;
@@ -43,8 +43,10 @@ public class Order
 
     public string GetShippingLabel()
     {
-        return $"====== Shipping Label ======\n" +
-               $"{_customer.GetName()}\n" +
-               $"{_customer.GetAddress().GetFullAddress()}";
+        string result = "----- SHIPPING LABEL -----\n";
+        result += $"{_customer.GetName()}\n";
+        result += $"{_customer.GetAddress().GetFullAddress()}";
+
+        return result;
     }
 }
