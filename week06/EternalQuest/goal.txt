@@ -1,0 +1,4 @@
+0
+SimpleGoal:finish my assigment on time,assigment work,100,False
+EternalGoal:read scripture daily,scripture verses,70
+ChecklistGoal:Do monthly shopping,for a month,50,4,50,0
